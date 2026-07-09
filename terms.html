@@ -4,121 +4,285 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Terms of Service — OtakuShelf</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  :root { --bg: #0D0D0F; --surface: #1A1A2E; --primary: #6C63FF; --secondary: #03DAC6; --text: #F0F0F0; --muted: #9E9E9E; --border: rgba(255,255,255,0.08); }
-  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; }
-  header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 16px 40px; display: flex; align-items: center; gap: 14px; }
-  .logo { width: 36px; height: 36px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
-  header h1 { font-size: 18px; font-weight: 700; }
-  .back { color: var(--primary); text-decoration: none; font-size: 13px; margin-left: auto; }
-  .container { max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; }
-  .page-header { margin-bottom: 40px; }
-  .page-header .badge { background: var(--secondary); color: #000; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.5px; display: inline-block; margin-bottom: 14px; }
-  .page-header h2 { font-size: 32px; font-weight: 800; margin-bottom: 10px; }
-  .page-header .meta { color: var(--muted); font-size: 13px; }
-  .section { margin-bottom: 24px; background: var(--surface); border-radius: 16px; padding: 24px; border: 1px solid var(--border); }
-  .section h3 { font-size: 16px; font-weight: 700; margin-bottom: 12px; }
-  .section p, .section li { color: #ccc; font-size: 14px; line-height: 1.8; }
-  .section ul { padding-left: 20px; }
-  .section li { margin-bottom: 6px; }
-  .section p + p { margin-top: 10px; }
-  .warning { background: rgba(207,102,121,0.1); border-left: 3px solid #CF6679; border-radius: 0 8px 8px 0; padding: 12px 16px; margin-top: 12px; font-size: 13px; color: #bbb; }
-  .contact-box { background: rgba(3,218,198,0.08); border: 1px solid rgba(3,218,198,0.2); border-radius: 12px; padding: 20px; margin-top: 12px; }
-  .contact-box a { color: var(--secondary); text-decoration: none; font-weight: 600; }
-  footer { text-align: center; padding: 24px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--border); }
+  :root {
+    --bg: #0D0D0F;
+    --surface: rgba(26, 26, 46, 0.65);
+    --surface-solid: #1A1A2E;
+    --surface-light: #252540;
+    --primary: #6C63FF;
+    --primary-glow: rgba(108, 99, 255, 0.15);
+    --secondary: #03DAC6;
+    --secondary-glow: rgba(3, 218, 198, 0.15);
+    --text: #F0F0F0;
+    --muted: #9E9E9E;
+    --border: rgba(255, 255, 255, 0.08);
+  }
+  body {
+    background-color: var(--bg);
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(108, 99, 255, 0.08) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(3, 218, 198, 0.08) 0px, transparent 50%);
+    color: var(--text);
+    font-family: 'Poppins', 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+  header {
+    background: rgba(26, 26, 46, 0.8);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 40px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .logo {
+    width: 38px;
+    height: 38px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+  }
+  header h1 {
+    font-size: 18px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #FFF, #ccc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .back {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    margin-left: auto;
+    border: 1px solid var(--border);
+    padding: 6px 16px;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+    background: rgba(255, 255, 255, 0.03);
+  }
+  .back:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    box-shadow: 0 0 15px rgba(108, 99, 255, 0.4);
+  }
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+  .page-header {
+    margin-bottom: 40px;
+  }
+  .page-header .badge {
+    background: var(--secondary-glow);
+    color: var(--secondary);
+    border: 1px solid var(--secondary);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 20px;
+    letter-spacing: 0.8px;
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+  .page-header h2 {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #FFF, #A0A0A0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .page-header .meta {
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .section {
+    margin-bottom: 28px;
+    background: var(--surface);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+  .section h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section p, .section li {
+    color: #c4c4cc;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  .section ul {
+    padding-left: 20px;
+    list-style: none;
+    margin: 10px 0;
+  }
+  .section li {
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .section li::before {
+    content: "•";
+    color: var(--primary);
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+  }
+  .warning {
+    background: rgba(207, 102, 121, 0.1);
+    border-left: 4px solid #CF6679;
+    border-radius: 0 12px 12px 0;
+    padding: 16px;
+    margin-top: 16px;
+    font-size: 14px;
+    color: #FFF;
+    font-weight: 500;
+  }
+  .contact-box {
+    background: var(--secondary-glow);
+    border: 1px solid rgba(3, 218, 198, 0.15);
+    border-radius: 16px;
+    padding: 24px;
+    margin-top: 16px;
+    text-align: center;
+    transition: all 0.2s ease;
+  }
+  .contact-box:hover {
+    background: rgba(3, 218, 198, 0.12);
+    border-color: var(--secondary);
+  }
+  .contact-box a {
+    color: var(--secondary);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    border-bottom: 1px dashed var(--secondary);
+    padding-bottom: 2px;
+  }
+  footer {
+    text-align: center;
+    padding: 32px 24px;
+    color: var(--muted);
+    font-size: 13px;
+    border-top: 1px solid var(--border);
+    background: rgba(13, 13, 15, 0.9);
+  }
 </style>
 </head>
 <body>
 <header>
   <div class="logo">📚</div>
   <h1>OtakuShelf</h1>
-  <a href="index.html" class="back">← Back</a>
+  <a href="index.html" class="back">&larr; Back</a>
 </header>
 <div class="container">
   <div class="page-header">
     <div class="badge">📋 TERMS OF SERVICE</div>
     <h2>Terms of Service</h2>
-    <p class="meta">Last updated: June 1, 2025 · Effective: June 1, 2025</p>
+    <p class="meta">Last updated: July 9, 2026 &middot; Effective: July 9, 2026</p>
   </div>
 
   <div class="section">
     <h3>📌 Agreement</h3>
-    <p>By downloading, installing, or using OtakuShelf ("the app"), you agree to be bound by these Terms of Service. If you do not agree, do not use the app.</p>
+    <p>By downloading, installing, or using OtakuShelf ("the app"), you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the app.</p>
     <p>OtakuShelf is developed and operated by Mansoor Satti ("we", "us", "developer").</p>
   </div>
 
   <div class="section">
-  <h3>✅ Permitted Use</h3>
-  <p>You may use OtakuShelf to:</p>
-  <ul>
-    <li>Track your anime, manga, and light novel reading progress</li>
-    <li>Submit Vibe Ratings and personal notes</li>
-    <li>Discover anime and manga through search, filters, and recommendations</li>
-    <li>View episode lists, chapter lists, and character information</li>
-    <li>Access legal streaming and reading links to official platforms</li>
-    <li>Share your OtakuWrapped stats card on social media</li>
-    <li>View community ratings contributed by other users</li>
-    <li>Earn and collect achievement badges</li>
-  </ul>
-</div>
+    <h3>✅ Permitted Use</h3>
+    <p>You may use OtakuShelf to:</p>
+    <ul>
+      <li>Track your anime, manga, and light novel reading progress</li>
+      <li>Submit personal reviews, Vibe Ratings, and personal notes</li>
+      <li>Discover anime and manga through search filters, schedules, and recommendations</li>
+      <li>View episode logs, chapter lists, and character profiles</li>
+      <li>Access official legal streaming and reading links to partner platforms</li>
+      <li>Share your generated OtakuWrapped stats card on external social media</li>
+      <li>View community averages built from anonymized user ratings</li>
+      <li>Collect achievement badges by tracking progress</li>
+    </ul>
+  </div>
 
   <div class="section">
     <h3>🚫 Prohibited Use</h3>
-    <p>You may NOT use OtakuShelf to:</p>
+    <p>You agree not to use OtakuShelf to:</p>
     <ul>
-      <li>Submit fake, spam, or bot ratings to manipulate community scores</li>
-      <li>Create multiple accounts to abuse the rating system</li>
-      <li>Attempt to reverse engineer, hack, or exploit the app</li>
-      <li>Use the app for any illegal purpose</li>
-      <li>Impersonate other users or the developer</li>
-      <li>Scrape or extract data from the app's backend</li>
+      <li>Submit fraudulent, automated, or spam ratings to distort community averages</li>
+      <li>Create multiple accounts to bypass features or abuse ratings</li>
+      <li>Reverse engineer, decompile, hack, or attempt to compromise security protocols of the app</li>
+      <li>Engage in scraping or automated data extraction from backend APIs</li>
+      <li>Use the service for any unauthorized commercial or illegal purposes</li>
     </ul>
-    <div class="warning">Violation of these terms may result in immediate account termination without notice.</div>
+    <div class="warning">Violation of these terms may result in immediate account suspension or termination without notice.</div>
   </div>
 
   <div class="section">
     <h3>⭐ Community Ratings</h3>
-    <p>OtakuShelf features community-generated ratings (Vibe Ratings) contributed by users. By submitting a rating, you:</p>
+    <p>OtakuShelf features community ratings (Vibe Ratings) submitted by users. By submitting a rating, you:</p>
     <ul>
-      <li>Grant us the right to display your rating as part of the community average</li>
-      <li>Confirm the rating is your genuine personal opinion</li>
-      <li>Understand that ratings are public and visible to all users</li>
-      <li>Acknowledge that we may remove ratings that appear fraudulent</li>
+      <li>Grant us the rights to compile and publish your rating in aggregate scores</li>
+      <li>Ensure the rating reflects your genuine personal opinion</li>
+      <li>Acknowledge that ratings are public and visible to other users</li>
+      <li>Acknowledge that we reserve the right to remove ratings that appear fraudulent</li>
     </ul>
   </div>
 
   <div class="section">
     <h3>📡 Third-Party Content</h3>
-    <p>Anime and manga information (titles, images, descriptions) is sourced from the Jikan API, which aggregates publicly available data from MyAnimeList. We do not own this content. All intellectual property rights for anime/manga titles belong to their respective owners.</p>
-    <p>OtakuShelf is a fan-made tracking tool and is not affiliated with or endorsed by MyAnimeList, Crunchyroll, or any anime studio.</p>
+    <p>Anime and manga metadata (cover art, synopsis, character names) is fetched dynamically from the Jikan API (aggregating MyAnimeList public listings). We do not own this content. Intellectual property rights belong entirely to original publishers and creators.</p>
+    <p>OtakuShelf is a fan-made tracking utility and is not affiliated with or endorsed by MyAnimeList, Crunchyroll, or any studios.</p>
   </div>
 
   <div class="section">
     <h3>💰 Ads & Monetization</h3>
-    <p>OtakuShelf is free to use and displays banner advertisements powered by Google AdMob. By using the app, you consent to the display of these ads. Ad content is controlled by Google and is subject to Google's advertising policies.</p>
+    <p>OtakuShelf is free to use and contains banner advertisements provided by Google AdMob. By using the app, you consent to the display of these ads. Ad distribution is managed by Google in compliance with Google's advertising policies.</p>
   </div>
 
   <div class="section">
     <h3>⚠️ Disclaimer of Warranties</h3>
-    <p>OtakuShelf is provided "as is" without warranties of any kind. We do not guarantee that the app will be available at all times, error-free, or that the data from third-party APIs will always be accurate or up to date.</p>
-    <p>We are not responsible for any loss of data, though we take reasonable measures to maintain data integrity through Firebase's infrastructure.</p>
+    <p>OtakuShelf is provided "as is" without warranty of any kind. We do not guarantee constant uptime, absence of errors, or that information fetched from external APIs will always be correct or updated.</p>
+    <p>We are not responsible for any loss of user tracking data, though we use secure Firebase cloud infrastructure to help maintain data integrity.</p>
   </div>
 
   <div class="section">
     <h3>🔒 Account Termination</h3>
-    <p>You may delete your account at any time through the app or by contacting us. We reserve the right to terminate accounts that violate these terms.</p>
-    <p>Upon termination, your library data, notes, and ratings will be permanently deleted from our servers within 30 days.</p>
+    <p>You may request deletion of your account and related library history at any time. We reserve the right to suspend or block accounts violating these terms.</p>
+    <p>Upon deletion, all associated reviews, ratings, library records, and statistics are permanently deleted from active databases within 30 days.</p>
   </div>
 
   <div class="section">
     <h3>🌍 Governing Law</h3>
-    <p>These Terms are governed by the laws of Pakistan. Any disputes shall be resolved in accordance with Pakistani law.</p>
+    <p>These terms are governed by the laws of Pakistan. Any disputes shall be resolved in accordance with Pakistani courts and laws.</p>
   </div>
 
   <div class="section">
     <h3>🔄 Changes to Terms</h3>
-    <p>We may update these Terms at any time. Continued use of the app after changes constitutes your acceptance of the new Terms. We will update the "Last updated" date when changes are made.</p>
+    <p>We reserve the right to modify these terms at any time. Your continued use of the app signifies acceptance of modified terms. Check the date at the top for updates.</p>
   </div>
 
   <div class="section">
@@ -126,10 +290,10 @@
     <div class="contact-box">
       <p>Questions about these Terms?</p>
       <br>
-      <p><a href="mailto:legal@otakushelf.app">legal@otakushelf.app</a></p>
+      <p><a href="mailto:lightningdragon116@gmail.com">lightningdragon116@gmail.com</a></p>
     </div>
   </div>
 </div>
-<footer>© 2025 OtakuShelf · Mansoor Satti · Pakistan</footer>
+<footer>&copy; 2026 OtakuShelf &middot; Mansoor Satti &middot; Pakistan</footer>
 </body>
 </html>
