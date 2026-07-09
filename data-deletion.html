@@ -4,131 +4,328 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Data Deletion — OtakuShelf</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  :root { --bg: #0D0D0F; --surface: #1A1A2E; --primary: #6C63FF; --secondary: #03DAC6; --text: #F0F0F0; --muted: #9E9E9E; --border: rgba(255,255,255,0.08); --error: #CF6679; }
-  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; }
-  header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 16px 40px; display: flex; align-items: center; gap: 14px; }
-  .logo { width: 36px; height: 36px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
-  header h1 { font-size: 18px; font-weight: 700; }
-  .back { color: var(--primary); text-decoration: none; font-size: 13px; margin-left: auto; }
-  .container { max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; }
-  .page-header { margin-bottom: 40px; }
-  .page-header .badge { background: var(--error); color: white; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.5px; display: inline-block; margin-bottom: 14px; }
-  .page-header h2 { font-size: 32px; font-weight: 800; margin-bottom: 10px; }
-  .page-header .meta { color: var(--muted); font-size: 13px; }
-  .section { margin-bottom: 24px; background: var(--surface); border-radius: 16px; padding: 24px; border: 1px solid var(--border); }
-  .section h3 { font-size: 16px; font-weight: 700; margin-bottom: 12px; }
-  .section p, .section li { color: #ccc; font-size: 14px; line-height: 1.8; }
-  .section ul { padding-left: 20px; }
-  .section li { margin-bottom: 6px; }
-  .section p + p { margin-top: 10px; }
-  .steps { counter-reset: steps; }
-  .step { display: flex; gap: 16px; margin-bottom: 20px; align-items: flex-start; }
-  .step-num { background: var(--primary); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
-  .step-content h4 { font-size: 14px; font-weight: 600; color: white; margin-bottom: 4px; }
-  .step-content p { font-size: 13px; color: #bbb; line-height: 1.6; }
-  .warning-box { background: rgba(207,102,121,0.1); border: 1px solid rgba(207,102,121,0.3); border-radius: 12px; padding: 16px; margin-top: 12px; }
-  .warning-box p { color: #e8a0ac; font-size: 13px; }
-  .contact-box { background: rgba(3,218,198,0.08); border: 1px solid rgba(3,218,198,0.2); border-radius: 12px; padding: 20px; margin-top: 12px; }
-  .contact-box a { color: var(--secondary); text-decoration: none; font-weight: 600; }
-  footer { text-align: center; padding: 24px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--border); }
+  :root {
+    --bg: #0D0D0F;
+    --surface: rgba(26, 26, 46, 0.65);
+    --surface-solid: #1A1A2E;
+    --surface-light: #252540;
+    --primary: #6C63FF;
+    --primary-glow: rgba(108, 99, 255, 0.15);
+    --secondary: #03DAC6;
+    --secondary-glow: rgba(3, 218, 198, 0.15);
+    --text: #F0F0F0;
+    --muted: #9E9E9E;
+    --border: rgba(255, 255, 255, 0.08);
+    --error: #CF6679;
+    --error-glow: rgba(207, 102, 121, 0.15);
+  }
+  body {
+    background-color: var(--bg);
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(108, 99, 255, 0.08) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(3, 218, 198, 0.08) 0px, transparent 50%);
+    color: var(--text);
+    font-family: 'Poppins', 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+  header {
+    background: rgba(26, 26, 46, 0.8);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 40px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .logo {
+    width: 38px;
+    height: 38px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+  }
+  header h1 {
+    font-size: 18px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #FFF, #ccc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .back {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    margin-left: auto;
+    border: 1px solid var(--border);
+    padding: 6px 16px;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+    background: rgba(255, 255, 255, 0.03);
+  }
+  .back:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    box-shadow: 0 0 15px rgba(108, 99, 255, 0.4);
+  }
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+  .page-header {
+    margin-bottom: 40px;
+  }
+  .page-header .badge {
+    background: var(--error-glow);
+    color: var(--error);
+    border: 1px solid var(--error);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 20px;
+    letter-spacing: 0.8px;
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+  .page-header h2 {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #FFF, #A0A0A0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .page-header .meta {
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .section {
+    margin-bottom: 28px;
+    background: var(--surface);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+  .section h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section p, .section li {
+    color: #c4c4cc;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  .section ul {
+    padding-left: 20px;
+    list-style: none;
+    margin: 10px 0;
+  }
+  .section li {
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .section li::before {
+    content: "•";
+    color: var(--primary);
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+  }
+  .warning-box {
+    background: var(--error-glow);
+    border-left: 4px solid var(--error);
+    border-radius: 0 12px 12px 0;
+    padding: 16px;
+    margin-top: 16px;
+    font-size: 14px;
+    color: #FFF;
+    font-weight: 500;
+  }
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 16px;
+  }
+  .step {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .step-num {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #000;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 800;
+    flex-shrink: 0;
+    margin-top: 2px;
+    box-shadow: 0 4px 10px rgba(108, 99, 255, 0.2);
+  }
+  .step-content h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #FFF;
+    margin-bottom: 4px;
+  }
+  .step-content p {
+    font-size: 13px;
+    color: #b0b0bb;
+    line-height: 1.6;
+  }
+  .contact-box {
+    background: var(--secondary-glow);
+    border: 1px solid rgba(3, 218, 198, 0.15);
+    border-radius: 16px;
+    padding: 24px;
+    margin-top: 16px;
+    text-align: center;
+    transition: all 0.2s ease;
+  }
+  .contact-box:hover {
+    background: rgba(3, 218, 198, 0.12);
+    border-color: var(--secondary);
+  }
+  .contact-box a {
+    color: var(--secondary);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    border-bottom: 1px dashed var(--secondary);
+    padding-bottom: 2px;
+  }
+  footer {
+    text-align: center;
+    padding: 32px 24px;
+    color: var(--muted);
+    font-size: 13px;
+    border-top: 1px solid var(--border);
+    background: rgba(13, 13, 15, 0.9);
+  }
 </style>
 </head>
 <body>
 <header>
   <div class="logo">📚</div>
   <h1>OtakuShelf</h1>
-  <a href="index.html" class="back">← Back</a>
+  <a href="index.html" class="back">&larr; Back</a>
 </header>
 <div class="container">
   <div class="page-header">
     <div class="badge">🗑️ DATA DELETION</div>
     <h2>Delete Your Data</h2>
-    <p class="meta">Your right to be forgotten — we take it seriously.</p>
+    <p class="meta">Your right to be forgotten &mdash; we take it seriously.</p>
   </div>
 
   <div class="section">
-    <h3>📌 What Gets Deleted</h3>
-    <p>When you request account deletion, the following data is permanently removed from our servers:</p>
+    <h3>📌 What Gets Purged</h3>
+    <p>When you delete your OtakuShelf account, the following items are permanently removed from our servers:</p>
     <ul>
-      <li>Your account (email, username, password hash)</li>
-      <li>Your entire anime and manga library</li>
-      <li>All personal notes you have written</li>
-      <li>All ratings you have submitted</li>
-      <li>Your achievements and stats</li>
-      <li>Your OtakuWrapped data</li>
+      <li>Your account credentials (email address, displayName, secure password hash)</li>
+      <li>Your complete catalog tracking list (anime, manga, and light novels)</li>
+      <li>All personal review notes and rating records</li>
+      <li>Your customized statistics dashboard and unlocked achievements</li>
+      <li>Your computed OtakuWrapped state card data</li>
     </ul>
     <div class="warning-box">
-      <p>⚠️ <strong>This action is permanent and cannot be undone.</strong> Your community rating contributions will be removed from averages. This process takes up to 30 days.</p>
+      ⚠️ <strong>Warning:</strong> Deletion is irreversible. Once processed, library data cannot be recovered. Community rating contributions will be subtracted from averages immediately. The complete purge from backups takes up to 30 days.
     </div>
   </div>
 
   <div class="section">
-    <h3>📱 Method 1 — Delete from App (Recommended)</h3>
+    <h3>📱 Method 1 &mdash; Delete from Within the App (Recommended)</h3>
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
         <div class="step-content">
           <h4>Open OtakuShelf</h4>
-          <p>Launch the app and make sure you are logged in to the account you want to delete.</p>
+          <p>Launch the app on your device and ensure you are logged into the profile you want to delete.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">2</div>
         <div class="step-content">
-          <h4>Go to Profile</h4>
-          <p>Tap the Profile tab in the bottom navigation bar.</p>
+          <h4>Navigate to Profile</h4>
+          <p>Tap the <strong>Profile</strong> tab on the bottom navigation bar to open your dashboard.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">3</div>
         <div class="step-content">
-          <h4>Scroll to Account Section</h4>
-          <p>Scroll down to find the Account section near the bottom of the profile screen.</p>
+          <h4>Locate Account Options</h4>
+          <p>Scroll down to the bottom of the profile screen to locate the Account action lists.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">4</div>
         <div class="step-content">
-          <h4>Tap "Delete Account"</h4>
-          <p>Tap the red "Delete Account" option. You will be asked to confirm. Once confirmed, deletion begins immediately.</p>
+          <h4>Confirm Deletion</h4>
+          <p>Tap the red <strong>Delete Account</strong> option. You will be prompted with a final verification box. Confirm to begin the deletion process instantly.</p>
         </div>
       </div>
     </div>
   </div>
 
   <div class="section">
-    <h3>📧 Method 2 — Email Request</h3>
-    <p>If you cannot access the app, send an email request to us and we will process it manually within 5 business days.</p>
+    <h3>📧 Method 2 &mdash; Manual Request via Email</h3>
+    <p>If you have uninstalled the app or cannot log in, send us a manual request and we will disable and purge your data manually.</p>
     <div class="contact-box">
       <p>Send your deletion request to:</p>
       <br>
-      <p><a href="mailto:delete@otakushelf.app">delete@otakushelf.app</a></p>
+      <p><a href="mailto:lightningdragon116@gmail.com">lightningdragon116@gmail.com</a></p>
       <br>
-      <p style="color:#bbb;font-size:13px">Please include the email address associated with your account. We may ask for verification before proceeding.</p>
+      <p style="color:#b0b0bb;font-size:13px">Please send the message from the email address associated with your OtakuShelf account. We may verify identity before processing.</p>
     </div>
   </div>
 
   <div class="section">
-    <h3>⏱️ Processing Time</h3>
-    <p>Account deletion is processed as follows:</p>
+    <h3>⏱️ Processing Timelines</h3>
+    <p>Purging requests proceed through the following phases:</p>
     <ul>
-      <li><strong style="color:white">Immediate</strong> — Account disabled, login no longer works</li>
-      <li><strong style="color:white">Within 7 days</strong> — Library, notes, ratings removed from active databases</li>
-      <li><strong style="color:white">Within 30 days</strong> — All data purged from backups</li>
+      <li><strong style="color:white">Immediate</strong> &mdash; Your account is disabled and access tokens are blacklisted.</li>
+      <li><strong style="color:white">Within 7 Days</strong> &mdash; Library catalogs, reviews, and ratings tables are deleted from active databases.</li>
+      <li><strong style="color:white">Within 30 Days</strong> &mdash; Backups and server cache nodes are fully purged.</li>
     </ul>
   </div>
 
   <div class="section">
     <h3>❓ Questions</h3>
     <div class="contact-box">
-      <p>Any questions about data deletion?</p>
+      <p>Have additional concerns regarding your privacy or data?</p>
       <br>
-      <p><a href="mailto:privacy@otakushelf.app">privacy@otakushelf.app</a></p>
+      <p><a href="mailto:lightningdragon116@gmail.com">lightningdragon116@gmail.com</a></p>
     </div>
   </div>
 </div>
-<footer>© 2025 OtakuShelf · Mansoor Satti · Pakistan</footer>
+<footer>&copy; 2026 OtakuShelf &middot; Mansoor Satti &middot; Pakistan</footer>
 </body>
 </html>
