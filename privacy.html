@@ -4,42 +4,207 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Privacy Policy — OtakuShelf</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  :root { --bg: #0D0D0F; --surface: #1A1A2E; --primary: #6C63FF; --secondary: #03DAC6; --text: #F0F0F0; --muted: #9E9E9E; --border: rgba(255,255,255,0.08); }
-  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; }
-  header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 16px 40px; display: flex; align-items: center; gap: 14px; }
-  .logo { width: 36px; height: 36px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
-  header h1 { font-size: 18px; font-weight: 700; }
-  .back { color: var(--primary); text-decoration: none; font-size: 13px; margin-left: auto; }
-  .container { max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; }
-  .page-header { margin-bottom: 40px; }
-  .page-header .badge { background: var(--primary); color: white; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.5px; display: inline-block; margin-bottom: 14px; }
-  .page-header h2 { font-size: 32px; font-weight: 800; margin-bottom: 10px; }
-  .page-header .meta { color: var(--muted); font-size: 13px; }
-  .section { margin-bottom: 36px; background: var(--surface); border-radius: 16px; padding: 24px; border: 1px solid var(--border); }
-  .section h3 { font-size: 16px; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-  .section p, .section li { color: #ccc; font-size: 14px; line-height: 1.8; }
-  .section ul { padding-left: 20px; }
-  .section li { margin-bottom: 6px; }
-  .section p + p { margin-top: 10px; }
-  .highlight { background: rgba(108,99,255,0.1); border-left: 3px solid var(--primary); border-radius: 0 8px 8px 0; padding: 12px 16px; margin-top: 12px; font-size: 13px; color: #bbb; }
-  .contact-box { background: rgba(3,218,198,0.08); border: 1px solid rgba(3,218,198,0.2); border-radius: 12px; padding: 20px; margin-top: 12px; }
-  .contact-box a { color: var(--secondary); text-decoration: none; font-weight: 600; }
-  footer { text-align: center; padding: 24px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--border); }
+  :root {
+    --bg: #0D0D0F;
+    --surface: rgba(26, 26, 46, 0.65);
+    --surface-solid: #1A1A2E;
+    --surface-light: #252540;
+    --primary: #6C63FF;
+    --primary-glow: rgba(108, 99, 255, 0.15);
+    --secondary: #03DAC6;
+    --secondary-glow: rgba(3, 218, 198, 0.15);
+    --text: #F0F0F0;
+    --muted: #9E9E9E;
+    --border: rgba(255, 255, 255, 0.08);
+  }
+  body {
+    background-color: var(--bg);
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(108, 99, 255, 0.08) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(3, 218, 198, 0.08) 0px, transparent 50%);
+    color: var(--text);
+    font-family: 'Poppins', 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+  header {
+    background: rgba(26, 26, 46, 0.8);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 40px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .logo {
+    width: 38px;
+    height: 38px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+  }
+  header h1 {
+    font-size: 18px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #FFF, #ccc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .back {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    margin-left: auto;
+    border: 1px solid var(--border);
+    padding: 6px 16px;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+    background: rgba(255, 255, 255, 0.03);
+  }
+  .back:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    box-shadow: 0 0 15px rgba(108, 99, 255, 0.4);
+  }
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+  .page-header {
+    margin-bottom: 40px;
+  }
+  .page-header .badge {
+    background: var(--primary-glow);
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 20px;
+    letter-spacing: 0.8px;
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+  .page-header h2 {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #FFF, #A0A0A0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .page-header .meta {
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .section {
+    margin-bottom: 28px;
+    background: var(--surface);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+  .section h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section p, .section li {
+    color: #c4c4cc;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  .section ul {
+    padding-left: 20px;
+    list-style: none;
+    margin: 10px 0;
+  }
+  .section li {
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .section li::before {
+    content: "•";
+    color: var(--primary);
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+  }
+  .highlight {
+    background: var(--primary-glow);
+    border-left: 4px solid var(--primary);
+    border-radius: 0 12px 12px 0;
+    padding: 16px;
+    margin-top: 16px;
+    font-size: 14px;
+    color: #FFF;
+    font-weight: 500;
+  }
+  .contact-box {
+    background: var(--secondary-glow);
+    border: 1px solid rgba(3, 218, 198, 0.15);
+    border-radius: 16px;
+    padding: 24px;
+    margin-top: 16px;
+    text-align: center;
+    transition: all 0.2s ease;
+  }
+  .contact-box:hover {
+    background: rgba(3, 218, 198, 0.12);
+    border-color: var(--secondary);
+  }
+  .contact-box a {
+    color: var(--secondary);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    border-bottom: 1px dashed var(--secondary);
+    padding-bottom: 2px;
+  }
+  footer {
+    text-align: center;
+    padding: 32px 24px;
+    color: var(--muted);
+    font-size: 13px;
+    border-top: 1px solid var(--border);
+    background: rgba(13, 13, 15, 0.9);
+  }
 </style>
 </head>
 <body>
 <header>
   <div class="logo">📚</div>
   <h1>OtakuShelf</h1>
-  <a href="index.html" class="back">← Back</a>
+  <a href="index.html" class="back">&larr; Back</a>
 </header>
 <div class="container">
   <div class="page-header">
     <div class="badge">🔒 PRIVACY POLICY</div>
     <h2>Your Privacy Matters</h2>
-    <p class="meta">Last updated: June 1, 2026 · Effective: June 1, 2026</p>
+    <p class="meta">Last updated: July 9, 2026 &middot; Effective: July 9, 2026</p>
   </div>
 
   <div class="section">
@@ -49,109 +214,105 @@
     <div class="highlight">We do not sell your personal data to any third party. Ever.</div>
   </div>
 
-  <!-- Replace the App Usage Data section: -->
-<div class="section">
-  <h3>📦 Information We Collect</h3>
-  <p><strong style="color:white">Account Information</strong></p>
-  <ul>
-    <li>Email address (used for login)</li>
-    <li>Username (chosen by you)</li>
-    <li>Account creation date</li>
-  </ul>
-  <br>
-  <p><strong style="color:white">App Usage Data</strong></p>
-  <ul>
-    <li>Anime and manga library (titles, status, progress)</li>
-    <li>Episode and chapter progress tracking</li>
-    <li>Personal notes you write for titles</li>
-    <li>Vibe ratings you submit (Story, Visuals, Feels)</li>
-    <li>Favourite titles you pin</li>
-    <li>Light novel reading list and volume progress</li>
-    <li>Achievements you unlock</li>
-    <li>OtakuWrapped stats card data</li>
-  </ul>
-  <br>
-  <p><strong style="color:white">Automatically Collected</strong></p>
-  <ul>
-    <li>Device type and operating system (via Firebase)</li>
-    <li>App crash reports (via Firebase Crashlytics)</li>
-    <li>Ad interaction data (via Google AdMob)</li>
-  </ul>
-</div>
+  <div class="section">
+    <h3>📦 Information We Collect</h3>
+    <p><strong style="color:white">Account Information</strong></p>
+    <ul>
+      <li>Email address (used for login and sync verification)</li>
+      <li>Username (custom displayName chosen by you)</li>
+      <li>Account creation timestamp</li>
+    </ul>
+    <br>
+    <p><strong style="color:white">App Usage Data</strong></p>
+    <ul>
+      <li>Anime and manga library list (titles, reading/watching status, progress details)</li>
+      <li>Episode and chapter progress tracking counters</li>
+      <li>Personal review notes written for specific titles</li>
+      <li>Vibe ratings submitted by you (Story, Visuals, Feels)</li>
+      <li>Pinned/favourited anime, manga, and light novels</li>
+      <li>Light novel volume lists and reading progress</li>
+      <li>Achievements and badges unlocked</li>
+      <li>OtakuWrapped performance stats and customized card state</li>
+    </ul>
+    <br>
+    <p><strong style="color:white">Automatically Collected Data</strong></p>
+    <ul>
+      <li>Device model, manufacture info, and OS version (via Firebase)</li>
+      <li>App crash logs (via Firebase Crashlytics)</li>
+      <li>Banner ad interaction stats (via Google AdMob)</li>
+      <li>Anonymous app activity statistics and screen transitions (via Firebase Analytics)</li>
+    </ul>
+  </div>
 
   <div class="section">
     <h3>🎯 How We Use Your Data</h3>
     <ul>
-      <li>To provide and maintain the app's core features</li>
-      <li>To sync your library and ratings across sessions</li>
-      <li>To display community ratings built from anonymized votes</li>
-      <li>To generate your personal stats and OtakuWrapped card</li>
-      <li>To serve relevant ads through Google AdMob</li>
-      <li>To improve app performance using crash reports</li>
+      <li>To initialize and sync your personal catalog, review notes, and progress states across devices</li>
+      <li>To calculate and compile anonymous community rating scores (Vibe averages)</li>
+      <li>To generate your personal metrics and custom OtakuWrapped statistics card</li>
+      <li>To deliver relevant banner advertisements via Google AdMob</li>
+      <li>To monitor, debug, and patch stability/crash issues using Crashlytics logs</li>
     </ul>
   </div>
 
   <div class="section">
     <h3>🔥 Firebase & Google Services</h3>
-    <p>OtakuShelf uses Google Firebase for authentication and data storage. Your data is stored securely on Google's servers.</p>
+    <p>OtakuShelf relies on Google Firebase platform configurations for core services. Your data is stored securely on Google's globally distributed cloud servers.</p>
     <ul>
-      <li><strong style="color:white">Firebase Auth</strong> — handles login, password hashing</li>
-      <li><strong style="color:white">Cloud Firestore</strong> — stores your library, notes, ratings</li>
-      <li><strong style="color:white">Google AdMob</strong> — serves banner advertisements</li>
+      <li><strong style="color:white">Firebase Auth</strong> &mdash; Authenticates sessions, manages credentials, and stores secure hashes.</li>
+      <li><strong style="color:white">Cloud Firestore</strong> &mdash; Stores user library catalogs, notes, rating tables, and unlocked achievements.</li>
+      <li><strong style="color:white">Google AdMob</strong> &mdash; Manages ad delivery matching Google's advertising policies.</li>
+      <li><strong style="color:white">Firebase Analytics & Crashlytics</strong> &mdash; Collects diagnostic data and anonymized user flows to assure high-stability builds.</li>
     </ul>
-    <p style="margin-top:10px">Google's privacy policy applies to their services: <a href="https://policies.google.com/privacy" style="color: var(--secondary);">policies.google.com/privacy</a></p>
+    <p style="margin-top:14px">Google's overall privacy controls apply to these operations: <a href="https://policies.google.com/privacy" style="color: var(--secondary);" target="_blank">policies.google.com/privacy</a></p>
   </div>
 
-<div class="section">
-  <h3>📡 Third-Party APIs & Services</h3>
-  <p>We use the following third-party services:</p>
-  <ul>
-    <li><strong style="color:white">Jikan API</strong> — Fetches anime/manga data from MyAnimeList. No personal data is sent.</li>
-    <li><strong style="color:white">Google Firebase</strong> — Authentication, database, crash reporting.</li>
-    <li><strong style="color:white">Google AdMob</strong> — Banner advertisements. Subject to Google's ad policies.</li>
-    <li><strong style="color:white">YouTube</strong> — Trailer links open in the YouTube app or browser. No data is shared.</li>
-    <li><strong style="color:white">Streaming platforms</strong> — "Where to Watch" links open external apps (Crunchyroll, Netflix etc). We do not share data with these services.</li>
-    <li><strong style="color:white">Manga reading sites</strong> — "Read Legally" links open external sites. We do not share data with these services.</li>
-    <li><strong style="color:white">Novel publishers</strong> — Publisher links open external sites. We do not share data.</li>
-    <li><strong style="color:white">Google Favicon Service</strong> — Used to display platform logos. Domain names of streaming/reading sites are sent to Google's servers.</li>
-  </ul>
-</div>
+  <div class="section">
+    <h3>📡 Third-Party APIs & External Links</h3>
+    <p>We use and direct users to these external services:</p>
+    <ul>
+      <li><strong style="color:white">Jikan API</strong> &mdash; Fetches public anime/manga metadata. No personal user variables are sent.</li>
+      <li><strong style="color:white">YouTube</strong> &mdash; Direct links to anime/manga trailers which open inside the official YouTube client.</li>
+      <li><strong style="color:white">Legal Streaming & Reading Platforms</strong> &mdash; "Where to Watch/Read" links opening external platforms (Crunchyroll, Netflix, BookWalker, etc.). No personal profile details are shared.</li>
+      <li><strong style="color:white">Google Favicon Service</strong> &mdash; Fetches icons matching publisher websites. Only the site domain is sent to Google.</li>
+    </ul>
+  </div>
 
   <div class="section">
     <h3>🧒 Children's Privacy</h3>
-    <p>OtakuShelf is not directed to children under 13 years of age. We do not knowingly collect personal information from children under 13. If you are a parent and believe your child has provided us with personal information, please contact us.</p>
+    <p>OtakuShelf is designed for general audiences and is not directed at children under the age of 13. We do not intentionally acquire information from minors. If a parent is aware of registration of a minor, please contact us immediately to purge the record.</p>
   </div>
 
   <div class="section">
     <h3>🌍 Data Retention</h3>
-    <p>Your data is retained for as long as your account is active. You may request deletion of your account and all associated data at any time. See our <a href="data-deletion.html" style="color: var(--secondary);">Data Deletion page</a> for instructions.</p>
+    <p>Your library tracking documents are kept live as long as you maintain your account. You can permanently request data purging. Consult our <a href="data-deletion.html" style="color: var(--secondary);">Data Deletion page</a> for instructions.</p>
   </div>
 
   <div class="section">
     <h3>🔐 Your Rights</h3>
     <ul>
-      <li><strong style="color:white">Access</strong> — Request a copy of your stored data</li>
-      <li><strong style="color:white">Correction</strong> — Update incorrect information</li>
-      <li><strong style="color:white">Deletion</strong> — Delete your account and all data</li>
-      <li><strong style="color:white">Portability</strong> — Export your library data</li>
+      <li><strong style="color:white">Access</strong> &mdash; Inspect your current library and profile parameters.</li>
+      <li><strong style="color:white">Correction</strong> &mdash; Edit your username or adjust catalog values.</li>
+      <li><strong style="color:white">Deletion</strong> &mdash; Erase account and all related database entries completely.</li>
+      <li><strong style="color:white">Portability</strong> &mdash; Export catalog items to share or backup.</li>
     </ul>
   </div>
 
   <div class="section">
     <h3>📧 Contact Us</h3>
     <div class="contact-box">
-      <p>For any privacy-related questions or data requests, contact us at:</p>
+      <p>For any privacy-related questions or details request, contact us at:</p>
       <br>
       <p><a href="mailto:lightningdragon116@gmail.com">lightningdragon116@gmail.com</a></p>
-      <p style="margin-top:6px;color:var(--muted);font-size:13px">We respond within 72 hours.</p>
+      <p style="margin-top:10px;color:var(--muted);font-size:13px">We respond within 72 hours.</p>
     </div>
   </div>
 
   <div class="section">
     <h3>🔄 Changes to This Policy</h3>
-    <p>We may update this Privacy Policy from time to time. We will notify you of any changes by updating the "Last updated" date at the top. Continued use of the app after changes constitutes acceptance of the new policy.</p>
+    <p>We may periodically update this policy. When updates occur, we will notify you by altering the date at the top of this document. Continued usage of OtakuShelf signals agreement to current policies.</p>
   </div>
 </div>
-<footer>© 2025 OtakuShelf · Mansoor Satti · Pakistan</footer>
+<footer>&copy; 2026 OtakuShelf &middot; Mansoor Satti &middot; Pakistan</footer>
 </body>
 </html>
