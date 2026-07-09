@@ -3,65 +3,202 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OtakuShelf — Legal</title>
+<title>OtakuShelf — Legal Portal</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   :root {
     --bg: #0D0D0F;
-    --surface: #1A1A2E;
+    --surface: rgba(26, 26, 46, 0.65);
+    --surface-solid: #1A1A2E;
+    --surface-light: #252540;
     --primary: #6C63FF;
+    --primary-glow: rgba(108, 99, 255, 0.15);
     --secondary: #03DAC6;
+    --secondary-glow: rgba(3, 218, 198, 0.15);
     --text: #F0F0F0;
     --muted: #9E9E9E;
-    --border: rgba(255,255,255,0.08);
+    --border: rgba(255, 255, 255, 0.08);
   }
-  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; min-height: 100vh; }
-  header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 20px 40px; display: flex; align-items: center; gap: 14px; }
-  .logo { width: 40px; height: 40px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
-  header h1 { font-size: 22px; font-weight: 700; }
-  header span { color: var(--muted); font-size: 13px; margin-left: 4px; }
-  .hero { text-align: center; padding: 60px 20px 40px; }
-  .hero h2 { font-size: 32px; font-weight: 800; margin-bottom: 12px; }
-  .hero p { color: var(--muted); font-size: 15px; }
-  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto; padding: 0 20px 60px; }
-  .card { background: var(--surface); border-radius: 16px; padding: 28px; border: 1px solid var(--border); text-decoration: none; color: var(--text); transition: border-color 0.2s, transform 0.2s; display: block; }
-  .card:hover { border-color: var(--primary); transform: translateY(-2px); }
-  .card-emoji { font-size: 36px; margin-bottom: 14px; }
-  .card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
-  .card p { color: var(--muted); font-size: 13px; line-height: 1.6; }
-  .card .arrow { color: var(--primary); font-size: 13px; margin-top: 16px; font-weight: 600; }
-  footer { text-align: center; padding: 24px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--border); }
+  body {
+    background-color: var(--bg);
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(108, 99, 255, 0.08) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(3, 218, 198, 0.08) 0px, transparent 50%);
+    color: var(--text);
+    font-family: 'Poppins', 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  header {
+    background: rgba(26, 26, 46, 0.8);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .logo {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+  }
+  header h1 {
+    font-size: 20px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #FFF, #ccc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  header h1 span {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-left: 8px;
+    vertical-align: middle;
+    -webkit-text-fill-color: var(--muted);
+  }
+  .hero {
+    text-align: center;
+    padding: 80px 20px 40px;
+  }
+  .hero h2 {
+    font-size: 38px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #FFF, #999);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero p {
+    color: var(--muted);
+    font-size: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    max-width: 960px;
+    margin: 0 auto 80px;
+    padding: 0 24px;
+    width: 100%;
+  }
+  .card {
+    background: var(--surface);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 32px;
+    border: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+  .card:hover {
+    border-color: var(--primary);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(108, 99, 255, 0.15);
+  }
+  .card-emoji {
+    font-size: 40px;
+    margin-bottom: 20px;
+    width: 60px;
+    height: 60px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+  }
+  .card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #FFF;
+  }
+  .card p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+    flex-grow: 1;
+  }
+  .card .arrow {
+    color: var(--primary);
+    font-size: 13px;
+    margin-top: 24px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: transform 0.2s ease;
+  }
+  .card:hover .arrow {
+    transform: translateX(4px);
+    color: var(--secondary);
+  }
+  footer {
+    text-align: center;
+    padding: 32px 24px;
+    color: var(--muted);
+    font-size: 13px;
+    border-top: 1px solid var(--border);
+    background: rgba(13, 13, 15, 0.9);
+    margin-top: auto;
+  }
 </style>
 </head>
 <body>
 <header>
   <div class="logo">📚</div>
-  <div><h1>OtakuShelf <span>Legal</span></h1></div>
+  <div><h1>OtakuShelf <span>Legal Portal</span></h1></div>
 </header>
 <div class="hero">
   <h2>Legal Information</h2>
-  <p>Everything you need to know about how OtakuShelf works and protects your data.</p>
+  <p>Everything you need to know about how OtakuShelf operates, protects your data privacy, and governs usage rules.</p>
 </div>
 <div class="cards">
   <a href="privacy.html" class="card">
     <div class="card-emoji">🔒</div>
     <h3>Privacy Policy</h3>
-    <p>How we collect, use, and protect your personal information when you use OtakuShelf.</p>
-    <div class="arrow">Read Policy →</div>
+    <p>Read about what information we collect, how it's handled via secure Firebase services, and your general data rights.</p>
+    <div class="arrow">Read Policy &rarr;</div>
   </a>
   <a href="terms.html" class="card">
     <div class="card-emoji">📋</div>
     <h3>Terms of Service</h3>
-    <p>The rules and guidelines for using OtakuShelf and what you can expect from us.</p>
-    <div class="arrow">Read Terms →</div>
+    <p>Understand the rules, prohibited actions, disclaimer of warranties, and permitted use guidelines of OtakuShelf.</p>
+    <div class="arrow">Read Terms &rarr;</div>
   </a>
   <a href="data-deletion.html" class="card">
     <div class="card-emoji">🗑️</div>
     <h3>Data Deletion</h3>
-    <p>How to request deletion of your account and all associated data from OtakuShelf.</p>
-    <div class="arrow">Learn More →</div>
+    <p>Find step-by-step instructions on how to delete your account data permanently from within the app or via email.</p>
+    <div class="arrow">Learn More &rarr;</div>
   </a>
 </div>
-<footer>© 2025 OtakuShelf · Built with ❤️ by Mansoor Satti · Pakistan</footer>
+<footer>&copy; 2026 OtakuShelf &middot; Built with ❤️ by Mansoor Satti &middot; Pakistan</footer>
 </body>
 </html>
